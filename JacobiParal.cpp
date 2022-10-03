@@ -7,12 +7,12 @@
 double pi = 3.141592653589793;
 
 
-//Définition de f :
+//DÃ©finition de f :
 double f(double x, double y) {
     return 0;
 }
 
-//Définition de V :
+//DÃ©finition de V :
 double V(double y, int b) {
     return 1 - cos((2 * pi * y) / b);
 }
@@ -29,7 +29,7 @@ double fxy(double x, double y) {
 
 int main() {
 
-    //Initialisation des paramétres :
+    //Initialisation des paramÃ©tres :
 
     //int N = 12 ;
     //int M = 12;                                                          
@@ -46,7 +46,7 @@ int main() {
 
 
 
-    //Allocation de la mémoire :
+    //Allocation de la mÃ©moire :
     double* sol = new double[N * M];
     double* solNew1 = new double[N * M];
     double* solNew2 = new double[N * M];
@@ -59,7 +59,7 @@ int main() {
     double err = 0;
 
 
-    //Initialisation de fx :    pour f=0 (dans le problème)
+    //Initialisation de fx :    pour f=0 (dans le problÃ¨me)
     for (int i = 0; i < N * M; i++) {
         fx[i] = 0;
     }
@@ -71,7 +71,7 @@ int main() {
         }
     }
 
-    ///Définition des conditions aux bord :
+    ///DÃ©finition des conditions aux bord :
 
 
     //Initialisation U0 :
@@ -79,7 +79,7 @@ int main() {
         U0[i] = u0;
     }
 
-    //Initialisation U1 : (qui égale à U0 si N=M )
+    //Initialisation U1 : (qui Ã©gale Ã  U0 si N=M )
     for (int i = 0; i < M; i++) {
         U1[i] = u0 * (1 + alpha * V(i * dy, b));
     }
@@ -128,7 +128,7 @@ int main() {
         }
     }
 
-    //Méthode de Jacobi avec différence finis :
+    //MÃ©thode de Jacobi avec diffÃ©rence finis :
 
 
     double coef1, coef2, coef;
@@ -150,7 +150,7 @@ int main() {
 
 
     }
-    //Méthode de Gauss avec Différences finis :
+    //MÃ©thode de Gauss avec DiffÃ©rences finis :
     for (int l = 0; l < L; l++) {
         for (int i = 1; i < N - 1; i++) {
             for (int j = 1; j < M - 1; j++) {
@@ -175,7 +175,7 @@ int main() {
     std::cout << ']' << std::endl;
 
     std::cout << "#########################################################################" << std::endl;
-    std::cout << "La méthode de Jacobie : \n" << std::endl;
+    std::cout << "La mÃ©thode de Jacobie : \n" << std::endl;
     //Calcul de l'erreur de Jacobi :
     for (int i = 0; i < N * M; i++) {
         err += pow(uex[i] - solNew1[i], 2);
@@ -183,7 +183,7 @@ int main() {
     err = sqrt(err);
 
 
-    //Affichage de la solution approchée :
+    //Affichage de la solution approchÃ©e :
     std::cout << " la solution approche est :" << std::endl;
     std::cout << '[';
     for (int i = 0; i < N * M; i++) {
@@ -213,7 +213,7 @@ int main() {
     err = sqrt(err);
 
 
-    //Affichage de la solution approchée :
+    //Affichage de la solution approchÃ©e :
     std::cout << "la solution approche est :" << std::endl;
     std::cout << '[';
     for (int i = 0; i < N * M; i++) {
